@@ -42,3 +42,57 @@ function formatarNumero(numero) {
 }
 
 console.log(formatarNumero(numero));
+
+
+/** 3) Qual a ordem dos prints no console? 
+ * R: a ordem no console seria:
+ * 
+ * A função é: c
+ * A função é: d
+ * 
+ * Pois a função b() retorna antes da chamada do alertUser(),
+ * e a chamada do alertUser("a") nunca é realizada, pois a promessa
+ * da função d() não foi resolvida.
+ * 
+*/
+
+/** 4) Existe algum erro nesse código? Se sim, comente sobre? 
+ * 
+ * No 1º codigo a alteração de {} para [] na criação do objeto,
+ * alteração das aspas utilizadas para ' ou ", e o fechamento 
+ * das aspas simples no nome do objeto de id:2.
+ * 
+ * 2º codigo comentado abaixo.
+*/
+
+async function a(){
+    b(); 
+    await c(); 
+    await d(); 
+    alertUser("a") // utilização do ";" como boa pratica e manter consistencia entre " e '.
+}
+a();
+
+//função retona sem chamar o alertUser()
+function b(){
+    return; 
+    alertUser('b');
+}
+
+//chamada do resolve antes da execução completa da função 
+function c() {
+    return new Promise((resolve) => {
+        resolve(); 
+        alertUser('c'); 
+    });
+} 
+//o resolve não é chamado nunca resolvendo a promise
+function d() { 
+    return new Promise((resolve) => {
+        alertUser('d'); 
+    });
+}
+
+function alertUser(message){
+     console.log('A função é: ' + message); 
+}
