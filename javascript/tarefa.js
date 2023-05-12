@@ -16,7 +16,7 @@ var clientes = [
     }
 ];
 
-/* 1) Percorra o objeto clientes e mostre o nome da cada cliente da seguinte maneira:
+/** 1) Percorra o objeto clientes e mostre o nome da cada cliente da seguinte maneira:
 “ultimoSobrenome, primeiroNome”; */
 
 function formatarNome(nomeCompleto) {
@@ -30,4 +30,15 @@ function formatarNome(nomeCompleto) {
     });
 }
   
-imprimirClientes(clientes);  
+imprimirClientes(clientes);
+
+/** 2) Formate a variável “numero” para o seguinte formato: “(XX)_X_XXXX-XXXX”; */
+
+var numero = "5(1)9-876-543-21";
+
+function formatarNumero(numero) {
+    return numero.replace(/\D/g, "")
+        .replace(/(\d{2})(\d)(\d{4})(\d{4})/, '($1)$2_$3-$4');
+}
+
+console.log(formatarNumero(numero));
