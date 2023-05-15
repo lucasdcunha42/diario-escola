@@ -28,10 +28,10 @@
         'Marcelo Planalto' => '26-05-1985'
     ];
 
-    adicionaDataDeNascimentoACliente($arrayDeClientes, $arrayDeNascimento);
-    imprimiClientes($arrayDeClientes, "nome", "dataNascimento", "banana", "alicate");
+    adicionarDataDeNascimentoACliente($arrayDeClientes, $arrayDeNascimento);
+    imprimirClientes($arrayDeClientes, "nome", "dataNascimento", "banana", "alicate");
 
-    function adicionaDataDeNascimentoACliente(array $arrayDeClientes, array $arrayDeNascimento)
+    function adicionarDataDeNascimentoACliente(array $arrayDeClientes, array $arrayDeNascimento)
     {
         foreach ($arrayDeClientes as $cliente) {
             $nomeCliente = $cliente->nome;
@@ -41,7 +41,7 @@
             }
         }
     }
-    function imprimiClientes(array $arrayDeClientes, ...$campos)
+    function imprimirClientes(array $arrayDeClientes, ...$campos)
     {
         $camposNaoEncontrados = array();
 
